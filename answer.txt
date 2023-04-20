@@ -1,0 +1,119 @@
+Exercise 1 — Tasks
+
+1. SELECT TITLE FROM movies;
+2. SELECT DIRECTOR FROM movies;
+3. SELECT TITLE , DIRECTOR FROM movies;
+4. SELECT TITLE , YEAR FROM movies;
+5. SELECT * FROM movies;
+
+
+Exercise 2 — Tasks
+
+1. SELECT * FROM movies WHERE ID=6;
+2. SELECT TITLE , YEAR FROM movies WHERE YEAR BETWEEN 2000 AND 2010;
+3. SELECT TITLE , YEAR FROM movies WHERE YEAR NOT BETWEEN 2000 AND 2010;
+4. SELECT TITLE,YEAR FROM movies LIMIT 0,5;
+
+Exercise 3 — Tasks
+
+1. SELECT * FROM movies WHERE TITLE LIKE 'TOY%';
+2. SELECT * FROM movies WHERE DIRECTOR LIKE 'JOHN%';
+3. SELECT TITLE , DIRECTOR FROM movies WHERE DIRECTOR NOT LIKE 'JOHN%';
+4. SELECT * FROM movies WHERE TITLE LIKE 'WALL%';
+
+
+Exercise 4 — Tasks
+
+1. SELECT DISTINCT DIRECTOR FROM movies ORDER BY DIRECTOR ;
+2. SELECT TITLE,YEAR FROM movies ORDER BY YEAR DESC LIMIT 0,4;
+3. SELECT TITLE FROM movies ORDER BY TITLE LIMIT 0,5;
+4. SELECT TITLE FROM movies ORDER BY TITLE LIMIT 5,5;
+
+Review 1 — Tasks
+
+1. SELECT CITY,POPULATION FROM north_american_cities WHERE COUNTRY='Canada';
+2. SELECT CITY FROM NORTH_AMERICAN_CITIES WHERE COUNTRY='United States' order by latitude desc ;
+3. SELECT city FROM NORTH_AMERICAN_CITIES where longitude < -87.629798 order by longitude;
+4. SELECT city FROM NORTH_AMERICAN_CITIES where country='Mexico' order by population desc limit 0,2;
+5. SELECT city,population FROM NORTH_AMERICAN_CITIES where country='United States' order by population desc limit 2,2;
+
+
+Exercise 6 — Tasks
+
+1. select Movies.Title , Boxoffice.Domestic_sales , Boxoffice.International_sales from Movies inner join Boxoffice on Movies.Id = Boxoffice.Movie_id;
+2. select Movies.Title , Boxoffice.International_sales,Boxoffice.Domestic_sales  from Movies inner join Boxoffice on Movies.id = Boxoffice.Movie_id where (Boxoffice.International_sales > Boxoffice.Domestic_sales);
+3. select Movies.Title   from Movies inner join Boxoffice on Movies.id = Boxoffice.Movie_id order by Boxoffice.Rating desc;
+
+
+Exercise 7 — Tasks
+
+1. SELECT distinct Building FROM Employees;
+2. SELECT *  FROM Buildings;
+3. select distinct Buildings.Building_name ,  Employees.Role from Buildings left join  Employees on  Building_name  = building;
+
+Exercise 8 — Tasks
+
+1. SELECT role,name FROM employees where Building is null;
+2. select distinct Building_name from Buildings left join employees on Building_name = Building where role is null;
+
+
+Exercise 9 — Tasks
+
+1. SELECT Movies.title , ((Boxoffice.Domestic_sales+Boxoffice.International_sales)/1000000) as combined_sales FROM movies left join Boxoffice on movies.id = boxoffice.movie_id;
+2. SELECT Movies.title , ((boxoffice.rating*10*100)/100) FROM movies left join Boxoffice on movies.id = boxoffice.movie_id;
+3. SELECT title FROM movies where year%2=0;
+
+Exercise 10 — Tasks
+
+1. SELECT max(Years_employed) FROM employees ;
+2. SELECT  role , avg(years_employed) FROM employees group by role;
+3. select building,sum(years_employed) from employees group by building;
+
+
+Exercise 11 — Tasks
+
+1. SELECT count(role) FROM employees where Role='Artist';
+2. SELECT role,count(role) FROM employees group by role;
+3. SELECT Sum(Years_employed) FROM employees where Role='Engineer';
+
+Exercise 12 — Tasks
+
+1. SELECT Director , count(Director) FROM movies group by Director;
+2. SELECT Director , sum(Boxoffice.Domestic_sales + Boxoffice.International_sales)as total FROM movies inner join Boxoffice on Movies.id = Boxoffice.Movie_id group by Director;
+
+Exercise 13 — Tasks
+
+1. INSERT INTO Movies VALUES (15,'Toy Story 4','Lee Unkrich',2023,120);
+2. INSERT INTO Boxoffice VALUES (15,8.7,340000000,270000000);
+
+Exercise 14 — Tasks
+
+1. UPDATE movies SET DIRECTOR='John Lasseter' WHERE ID=2;
+2. UPDATE movies SET Year=1999 WHERE ID=3;
+3. UPDATE movies SET Title='Toy Story 3',Director='Lee Unkrich' WHERE ID=11;
+
+Exercise 15 — Tasks
+
+1. DELETE FROM movies WHERE YEAR<2005;
+2. DELETE FROM movies WHERE Director='Andrew Stanton';
+
+
+Exercise 16 — Tasks
+
+1.CREATE TABLE DATABASE (
+NAME VARCHAR,
+VERSION FLOAT,
+DOWNLOAD_COUNT INT
+);
+
+
+Exercise 17 — Tasks
+
+1. ALTER TABLE MOVIES ADD Aspect_ratio FLOAT;
+2. ALTER TABLE MOVIES ADD Language VARCHAR DEFAULT ENGLISH;
+
+
+Exercise 18 — Tasks
+
+1. DROP TABLE MOVIES;
+2. DROP TABLE BoxOffice;
